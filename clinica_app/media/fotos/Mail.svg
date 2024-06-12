@@ -1,0 +1,10 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon/16px/Mail">
+<g id="Mail">
+<path id="Rectangle 291" d="M1 4.66675C1 3.56218 1.89543 2.66675 3 2.66675H13C14.1046 2.66675 15 3.56218 15 4.66675V11.3334C15 12.438 14.1046 13.3334 13 13.3334H3C1.89543 13.3334 1 12.438 1 11.3334V4.66675Z" stroke="#0098D8"/>
+<path id="Line 206" d="M1.10693 5L6.91564 9.14908C7.62497 9.65574 8.58076 9.64463 9.27812 9.12161L14.7736 5" stroke="#0098D8" stroke-linecap="round"/>
+<line id="Line 205" x1="2.91895" y1="10.3739" x2="5.04027" y2="8.25263" stroke="#0098D8" stroke-linecap="round"/>
+<line id="Line 207" x1="12.707" y1="10.7476" x2="10.5856" y2="8.62624" stroke="#0098D8" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

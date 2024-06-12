@@ -40,8 +40,8 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
           <div class="container">
-            <a class="navbar-brand" href="{% url 'index' %}"><span style="color: #5083E5; font-size: 40px; ">Clínica</span><span style="color: #fff; font-size: 40px;"> Médica</span></a>
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+            <a class="navbar-brand2" href="{% url 'index' %}"><img src="{% static 'assets/img/logo-blanco.png' %}" alt="CECOSF Logo" class="logo" width="160px" >
+              <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
               data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
               aria-label="Toggle navigation">
               <i class="fas fa-bars"></i>
@@ -88,7 +88,40 @@
           </div>
         </nav>
         <!-- Navbar -->
-      
+      <!-- Navbar secundario -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSecondary" aria-controls="navbarSecondary" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSecondary">
+          <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Información Paciente
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Tus Exámenes</a>
+                      <a class="dropdown-item" href="#">Historial Médico</a>
+                      <a class="dropdown-item" href="#">Tus Citas Médicas</a>
+                      <a class="dropdown-item" href="#">Solicitar Ayuda Social</a>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Médicos y Especialidades</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Red Cesfam</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Ayuda Social</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'nuestrocecosf' %}">Nuestro CECOSF</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
        
         <!--Section: Design Block-->
       </header>

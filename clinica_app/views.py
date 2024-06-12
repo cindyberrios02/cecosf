@@ -1099,4 +1099,5 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
-
+def borrador(request):
+    return render(request, 'clinica_app/borrador.html')
