@@ -1,0 +1,38 @@
+{% extends 'clinica_app/admin/base.html' %}
+{% block title %}
+	<title>Médico</title>
+{% endblock title %}
+<<<<<<< HEAD
+=======
+{% load messages %}
+>>>>>>> 4fa42ffe4c10a36e80bed4186940516e2a690e09
+{% block content %}
+
+<main class="container">
+    <div class="row">
+    <div class="col-md-4 offset-md-4 mt-5">
+        <h1 class="text-secondary">{{doctor.user.first_name}} {{doctor.user.last_name}}  </h1>
+        {{ error }} 
+        <form action="" method="POST">
+           
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary">Update</button>
+        </form> 
+    <div class="mt-5 d-flex">
+     
+      <form action="{% url 'doctor_complete' doctor.id %}" method="POST">
+        {% csrf_token %}
+          <button class="btn btn-secondary ">Complete</button>
+     </form>
+    
+        <form action="{% url 'doctor_delete' doctor.id %}" method="POST">
+        {% csrf_token %}
+            <button class="btn btn-danger ms-3">Delete</button>
+        </form>
+    </div>
+    </div>
+    </div>
+</main>
+
+{% endblock %}
