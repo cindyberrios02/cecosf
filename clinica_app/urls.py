@@ -7,7 +7,8 @@ from .views import SpecialistsListView
 
 
 urlpatterns = [
-    path('', views.index, name="index"),
+    
+    path('', views.index, name='index'),
     path('services/', views.services, name="services"),
     path('staff', views.staff, name="staff"),
     path('branch/', views.branch, name="branch"),

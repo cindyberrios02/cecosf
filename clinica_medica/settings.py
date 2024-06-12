@@ -59,7 +59,7 @@ ROOT_URLCONF = 'clinica_medica.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'clinica_app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,19 +84,34 @@ WSGI_APPLICATION = 'clinica_medica.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+#DATABASES = {
+#   'default': {
+#       'ENGINE': 'django.db.backends.mysql',
+#       'NAME': 'cecosf',
+#       'USER': 'root',
+#       'PASSWORD': '',
+#     'HOST': 'localhost',
+#      'PORT': '3306',
+#     'OPTIONS': {
+#            'charset': 'utf8mb4',
+#            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#       },
+#    
+#    }
+#}
+
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'cecosf',
-       'USER': 'root',
-       'PASSWORD': '',
-      'HOST': 'localhost',
-      'PORT': '3306',
-     'OPTIONS': {
-            'charset': 'utf8mb4',
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cecosf',
+        'USER': 'dbmasteruser',
+        'PASSWORD': 'I2(5+e(-(wx;68]X=xrG5rG~!!j<VL]0',
+        'HOST': 'ls-ade04f84f1e939929f9afd73875acfb043f4729d.clkwsrf1tddq.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+        'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-       },
-    
+        },
+        
     }
 }
 

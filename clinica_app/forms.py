@@ -11,6 +11,25 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail, BadHeaderError
 
+def validate_rut(rut):
+    rut = rut.replace(".", "").replace("-", "")
+    rut_body = rut[:-1]
+    verifier = rut[-1].upper()
+
+    rut_reversed = rut_body[::-1]
+    total = 0
+    multiplier = 2
+
+    for digit in rut_reversed:
+        total += int(digit) * multiplier
+        multiplier = multiplier + 1 if multiplier < 7 else 2
+
+    remainder = total % 11
+    calculated_verifier = '0' if remainder == 0 else 'K' if remainder == 1 else str(11 - remainder)
+
+    if verifier != calculated_verifier:
+        raise ValidationError('RUT inválido')
+
 class SignupForm(forms.Form):
     first_name = forms.CharField(label="Nombre: ", required=True)
     last_name = forms.CharField(label="Apellido: ", required=True)
@@ -84,7 +103,7 @@ class ContactForm(forms.Form):
 
 class PatientForm(forms.ModelForm):
     
-    dni = forms.CharField(label='DNI: ', required=True)
+    dni = forms.CharField(max_length='12', validators=[validate_rut])
     phone = forms.IntegerField(label='Teléfono:')
     address = forms.CharField(label='Domicilio completo:')
     city = forms.CharField(label='Localidad: ')
@@ -103,13 +122,19 @@ class PatientForm(forms.ModelForm):
     class Meta:
             model = Patient
             fields = ['dni', 'phone', 'address', 'city', 'social_work', 'sw_number', 'date_of_birth' ]
+    
 
     def clean_dni(self):
         dni = self.cleaned_data['dni']
-        if not dni.isdigit() or len(dni) != 8:
-            raise forms.ValidationError('DNI debe ser un número y contener solo 8 dígitos' )
+        
+        # Convertir a cadena y quitar espacios en blanco al inicio y al final
+        dni = str(dni).strip()
+
+        print("RUT ingresado:", dni)  # Agrega esta línea para depurar
+
+        if not validar_rut(dni):
+            raise forms.ValidationError('RUT no válido')
         return dni
-    
     def clean_phone(self):
         phone = str(self.cleaned_data['phone'])
         phone = re.sub(r'\D', '', phone)  # remove all non-digit characters
